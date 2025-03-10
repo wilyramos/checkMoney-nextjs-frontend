@@ -8,10 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      backgroundImage: {
+        "auth": "url('/grafico.svg')",
       },
+      backgroundSize: {
+        "auth": "30rem",
+      }
     },
   },
   plugins: [],
