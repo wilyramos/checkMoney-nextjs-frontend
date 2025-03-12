@@ -1,6 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
 import { ErrorResponseSchema, LoginSchema } from "@/src/schemas"
 
 type ActionStateType = {
@@ -55,8 +56,5 @@ export async function authenticate(prevState: any, formData: FormData){
         path: '/',
     })
 
-    return {
-        errors: [],
-        success: "Sesión iniciada correctamente"
-    }
+    redirect('/admin')
 }

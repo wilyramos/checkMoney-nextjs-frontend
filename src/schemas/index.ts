@@ -21,6 +21,11 @@ export const LoginSchema = z.object({
         .min(6, { message: 'La contraseña debe tener al menos 6 caracteres' }),
 });
 
+
+export const TokenSchema = z.string({message: "Token inválido"})
+                            .length(6, {message: "Token inválido"})
+
+                            
 export const SuccessSchema = z.string().min(1, { message: 'Valor inválido' });
 
 // Schema 
@@ -28,5 +33,9 @@ export const ErrorResponseSchema = z.object({
     error: z.string()
 })
 
-export const TokenSchema = z.string({message: "Token inválido"})
-                            .length(6, {message: "Token inválido"})
+export const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email()
+})
+export type User = z.infer<typeof UserSchema>
