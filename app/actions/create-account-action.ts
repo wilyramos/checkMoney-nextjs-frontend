@@ -8,7 +8,6 @@ type ActionStateType = {
 
 export async function register(prevState : ActionStateType, formData : FormData) {
 
-
     const registerData = {
         email: formData.get('email'),
         name: formData.get('name'),

@@ -14,6 +14,13 @@ export const RegisterSchema = z.object({
     path: ['password_confirmation']
 });
 
+export const LoginSchema = z.object({
+    email: z.string()
+        .email({ message: 'Email inválido' }),
+    password: z.string()
+        .min(6, { message: 'La contraseña debe tener al menos 6 caracteres' }),
+});
+
 export const SuccessSchema = z.string().min(1, { message: 'Valor inválido' });
 
 // Schema 
