@@ -49,6 +49,8 @@ export const ResetPasswordSchema = z.object({
     path: ["password_confirmation"]
 });
 
+export const PasswordValidationSchema = z.string().min(1, { message: 'Password inválido' });
+
 
 export const SuccessSchema = z.string().min(1, { message: 'Valor inválido' });
 
@@ -71,6 +73,8 @@ export const BudgetAPIResponseSchema = z.object({
     createdAt: z.string(),
     updatedAt: z.string()
 })
+
+
 
 export const BudgetsAPIResponseSchema = z.array(BudgetAPIResponseSchema)
 

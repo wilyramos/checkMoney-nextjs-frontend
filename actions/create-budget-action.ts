@@ -1,6 +1,7 @@
 "use server"
 
 import { DraftBudgetSchema, SuccessSchema } from "@/src/schemas"
+import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 
 
@@ -39,6 +40,8 @@ export async function createBudget( prevState : ActionStateType, formData: FormD
 
     const json = await req.json()
     const success = SuccessSchema.parse(json)
+
+    revalidatePath('/admin')
     
     return {
         errors: [],
