@@ -51,6 +51,10 @@ export const ResetPasswordSchema = z.object({
 
 export const PasswordValidationSchema = z.string().min(1, { message: 'Password inválido' });
 
+export const DraftExpenseSchema = z.object({
+    name: z.string().min(1, { message: 'Nombre inválido' }),
+    amount: z.coerce.number().min(1, { message: 'Cantidad inválida' }),
+});
 
 export const SuccessSchema = z.string().min(1, { message: 'Valor inválido' });
 
