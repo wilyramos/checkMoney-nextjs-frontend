@@ -9,7 +9,7 @@ export default function AuthLayout({
     return (
 
         <>
-            <div className="lg:grid lg:grid-cols-2 lg:min-h-screen">
+            <div className="lg:grid lg:grid-cols-2 lg:min-h-screen bg-white">
                 <div className="bg-yellow-500 flex items-center justify-center lg:min-h-screen bg-auth bg-30 bg-no-repeat bg-cover">
 
                     <div className="w-96 py-5 lg:py-20 ">

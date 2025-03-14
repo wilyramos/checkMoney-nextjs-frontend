@@ -1,6 +1,6 @@
 "use client"
 
-import { register } from '@/app/actions/create-account-action'
+import { register } from '@/actions/create-account-action'
 // import { useActionState } from 'react'
 import { useFormState } from 'react-dom'
 import ErrorMessage from '../ui/ErrorMessage'

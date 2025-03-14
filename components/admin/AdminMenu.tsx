@@ -5,7 +5,7 @@ import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/re
 import { Bars3Icon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import type { User } from '@/src/schemas'
-import { logout } from '@/app/actions/logout-user-action'
+import { logout } from '@/actions/logout-user-action'
 
 export default function AdminMenu({ user }: { user: User }) {
 

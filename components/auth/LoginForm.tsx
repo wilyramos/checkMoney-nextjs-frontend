@@ -1,6 +1,6 @@
 "use client"
 
-import { authenticate } from "@/app/actions/authenticate-user-action"
+import { authenticate } from "@/actions/authenticate-user-action"
 import { useEffect } from "react"
 import { useFormState } from "react-dom"
 import { toast } from "react-toastify"

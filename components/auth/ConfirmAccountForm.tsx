@@ -1,6 +1,6 @@
 "use client"
 
-import { confirmAccount } from "@/app/actions/confirm-account-action"
+import { confirmAccount } from "@/actions/confirm-account-action"
 import { PinInput, PinInputField } from "@chakra-ui/pin-input"
 import { useEffect, useState } from "react"
 import { useFormState } from "react-dom"

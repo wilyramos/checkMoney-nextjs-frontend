@@ -19,7 +19,7 @@ export default function RootLayout({
         <html lang="en">
             
             <body
-                className={outfit.className}
+                className="bg-gray-100 text-gray-900 font-sans"
             >
                 {children}
             </body>
