@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation"
 
 export default function ResetPasswordForm({ token }: { token: string }) {
 
-
     const router = useRouter()
     // send token to server
     const resetPasswordWithToken = resetPassword.bind(null, token)
@@ -30,8 +29,7 @@ export default function ResetPasswordForm({ token }: { token: string }) {
             })
 
         }
-    }
-        , [state])
+    }, [state, router])
 
     return (
         <form

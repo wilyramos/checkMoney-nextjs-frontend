@@ -23,7 +23,7 @@ export default function AddExpenseForm({closeModal}: {closeModal: () => void}) {
             toast.success(state.success)
             closeModal()
         }
-    }, [state])
+    }, [state, closeModal])
 
     return (
         <>

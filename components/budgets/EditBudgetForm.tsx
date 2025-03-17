@@ -7,7 +7,6 @@ import { editBudget } from "@/actions/edit-budget-action";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { revalidatePath } from "next/cache";
 
 
 export default function EditBudgetForm( { budget } : { budget: Budget} ) {
@@ -33,7 +32,7 @@ export default function EditBudgetForm( { budget } : { budget: Budget} ) {
             toast.success(state.success)
             router.push('/admin')
         }
-    }, [ state ])
+    }, [ state, router ])
 
 
     return (

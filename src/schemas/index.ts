@@ -55,6 +55,21 @@ export const DraftExpenseSchema = z.object({
     amount: z.coerce.number().min(1, { message: 'Cantidad inválida' }),
 });
 
+export const UpdatePasswordSchema = z.object({
+    current_password: z.string().min(1, { message: 'La contraseña es obligatoria' }),
+    password: z.string()
+        .min(6, { message: 'Nueva contraseña invalida' }),
+    password_confirmation: z.string()
+}).refine(data => data.password === data.password_confirmation, {
+    message: 'Las contraseñas no coinciden',
+    path: ['password_confirmation']
+});
+
+export const UpdateProfileSchema = z.object({
+    name: z.string().min(1, { message: 'Nombre inválido' }),
+    email: z.string().email({ message: 'Email inválido' }),
+});
+
 export const SuccessSchema = z.string().min(1, { message: 'Valor inválido' });
 
 // Schema 

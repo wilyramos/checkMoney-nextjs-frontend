@@ -22,7 +22,7 @@ export default function ConfirmAccountForm() {
 		if (isComplete) {
 			dispatch()
 		}
-	}, [isComplete])
+	}, [isComplete, dispatch])
 
 	// toastify
 
@@ -41,7 +41,7 @@ export default function ConfirmAccountForm() {
 				}
 			})
 		}
-	}, [state])
+	}, [state, router])
 
 	const handleChange = (token: string) => {
 		setIsComplete(false)
@@ -51,7 +51,6 @@ export default function ConfirmAccountForm() {
 	const handleComplete = () => {
 		setIsComplete(true)
 	}
-
 
 	return (
 		<>

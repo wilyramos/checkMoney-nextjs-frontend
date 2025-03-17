@@ -1,7 +1,5 @@
 import { verifySession } from "@/src/auth/dal"
 import getToken from "@/src/auth/token"
-import { verify } from "crypto"
-import { console } from "inspector"
 
 
 export async function GET(request: Request, {params} : { params: { budgetId: string, expenseId: string}}) {

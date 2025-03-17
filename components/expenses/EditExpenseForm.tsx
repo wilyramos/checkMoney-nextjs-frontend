@@ -2,7 +2,7 @@ import { DialogTitle } from "@headlessui/react";
 import ExpenseForm from "./ExpenseForm";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
-import { Expense, type DrafExpense } from "@/src/schemas";
+import { DrafExpense } from "@/src/schemas";
 import { useFormState } from "react-dom";
 import editExpense from "@/actions/edit-expense-action";
 import ErrorMessage from "../ui/ErrorMessage";
@@ -31,14 +31,14 @@ export default function EditExpenseForm({ closeModal }: { closeModal: () => void
         fetch(url)
             .then(res => res.json())
             .then(data => setExpense(data))
-    }, [])
+    }, [budgetId, expenseId])
 
     useEffect(() => {
         if(state.success) {
             toast.success(state.success)
             closeModal()
         }
-    }, [state])
+    }, [state, closeModal])
     
 
     return (

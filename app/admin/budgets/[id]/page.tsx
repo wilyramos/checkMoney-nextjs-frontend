@@ -1,5 +1,7 @@
+import ProgressBar from '@/components/budgets/ProgressBar'
 import AddExpenseButton from '@/components/expenses/AddExpenseButton'
 import ExpenseMenu from '@/components/expenses/ExpenseMenu'
+import Amount from '@/components/ui/Amount'
 import ModalContainer from '@/components/ui/ModalContainer'
 import { getBudget } from '@/src/services/budgets'
 import { formatCurrency, formatDate } from '@/src/utils'
@@ -9,6 +11,11 @@ export default async function BudgetDetailsPage({ params }: { params: { id: stri
 
 
     const budget = await getBudget(params.id)
+
+    const totalSpent = budget.expenses.reduce((total, expense) => total + +expense.amount, 0)
+    const totalAvailable = +budget.amount - totalSpent
+
+    const percentaje = +((totalSpent / +budget.amount) * 100).toFixed(2)
 
     return (
         <>
@@ -22,6 +29,29 @@ export default async function BudgetDetailsPage({ params }: { params: { id: stri
 
             {budget.expenses.length ? (
                 <>
+
+                    <div className='grid grid-cols-2 gap-4 mt-10'>
+                        <ProgressBar
+                            percentaje={percentaje}
+                        />
+                        <div className=''> 
+                            <Amount 
+                                label="Presupuesto"
+                                amount={+budget.amount}
+                            />
+                            <Amount 
+                                label="Disponible"
+                                amount={totalAvailable}
+                            />
+                            <Amount
+                                label="Gastado"
+                                amount={totalSpent}
+                            />
+                        </div>
+
+
+                    </div>
+
                     <h1 className='font-black text-2xl text-purple-950 my-5'>Gastos en este presupuesto</h1>
 
                     <ul role="list" className="divide-y divide-gray-300 border shadow-lg mt-10 ">

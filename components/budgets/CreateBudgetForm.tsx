@@ -2,14 +2,12 @@
 
 import { createBudget } from "@/actions/create-budget-action"
 import { useFormState } from "react-dom"
-import ErrorMessage from "../ui/ErrorMessage"
 import { useEffect } from "react"
 import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import BudgetForm from "./BudgetForm"
 
 export default function CreateBudgetForm() {
-
 
     const router = useRouter()
     const [ state, dispatch ] = useFormState(createBudget, {
@@ -28,7 +26,7 @@ export default function CreateBudgetForm() {
             toast.success(state.success)
             router.push('/admin')
         }
-    }, [ state ])
+    }, [ state, router ])
 
 
     return (

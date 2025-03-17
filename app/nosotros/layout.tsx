@@ -2,7 +2,7 @@
 
 export default function NosotrosPage({
 
-    children,
+    // children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {

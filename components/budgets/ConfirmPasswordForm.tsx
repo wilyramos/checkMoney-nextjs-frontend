@@ -3,7 +3,7 @@ import { DialogTitle } from "@headlessui/react"
 import { useFormState } from "react-dom"
 import { deleteBudget } from "@/actions/delete-budget-action"
 import ErrorMessage from "../ui/ErrorMessage"
-import { useEffect } from "react"
+import { useEffect, useCallback } from "react"
 import { toast } from "react-toastify"
 
 
@@ -11,6 +11,13 @@ export default function ConfirmPasswordForm() {
     const pathname = usePathname()
     const router = useRouter()
     const searchParams = useSearchParams()
+
+    // Usamos useCallback para evitar que closeModal cambie en cada render
+    const closeModal = useCallback(() => {
+        const hideModal = new URLSearchParams(searchParams.toString())
+        hideModal.delete('deleteBudgetId')
+        router.replace(`${pathname}?${hideModal}`)
+    }, [searchParams, pathname, router])
 
     const budgetId = +searchParams.get('deleteBudgetId')!
 
@@ -22,18 +29,12 @@ export default function ConfirmPasswordForm() {
     })
 
     useEffect(() => {
-        if(state.success) {
+        if (state.success) {
             toast.success(state.success)
             closeModal()
         }
-    }, [state.success])
+    }, [state, closeModal])
 
-
-    const closeModal = () => {
-        const hideModal = new URLSearchParams(searchParams.toString())
-        hideModal.delete('deleteBudgetId')
-        router.replace(`${pathname}?${hideModal}`)
-    }
 
     return (
         <>
@@ -48,8 +49,8 @@ export default function ConfirmPasswordForm() {
             </p>
             <p className='text-gray-600 text-sm'>(Un presupuesto eliminado y sus gastos no se pueden recuperar)</p>
 
-                { state.errors.map(error => <ErrorMessage key={error} > {error}</ErrorMessage>) }
-            
+            {state.errors.map(error => <ErrorMessage key={error} > {error}</ErrorMessage>)}
+
             <form
                 className=" mt-14 space-y-5"
                 noValidate
@@ -80,7 +81,6 @@ export default function ConfirmPasswordForm() {
                     >Cancelar</button>
                 </div>
             </form>
-
         </>
     )
 }

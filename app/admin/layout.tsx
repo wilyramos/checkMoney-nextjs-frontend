@@ -15,7 +15,7 @@ export default async function AdminLayout({
 
     return (
         <>
-            <header className='bg-gray-400 py-5 '>
+            <header className='bg-gray-200'>
                 <div className='max-w-5xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                     <div className='w-96'>
                         <Link href={'/admin'}>
@@ -28,11 +28,11 @@ export default async function AdminLayout({
                 </div>
             </header>
             
-            <section className='max-w-5xl mx-auto mt-20 p-3 py-10 bg-white text-black'>
+            <section className='max-w-5xl mx-auto mt-4 p-3 py-2 bg-white text-black'>
                 {children}
             </section>
             <ToastNotification />
-            <footer className='py-5 bg-white text-black'>
+            <footer className='py-2 bg-white text-black'>
                 <p className='text-center'>
                     Todos los Derechos Reservados {new Date().getFullYear()}
                 </p>
