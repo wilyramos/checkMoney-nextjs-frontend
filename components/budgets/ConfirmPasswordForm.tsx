@@ -44,7 +44,7 @@ export default function ConfirmPasswordForm() {
             >
                 Eliminar Presupuesto
             </DialogTitle>
-            <p className="text-xl font-bold">Ingresa tu Password para {''}
+            <p className="text-xl font-bold">Ingresa tu password para {''}
                 <span className="text-amber-500">eliminar el presupuesto {''}</span>
             </p>
             <p className='text-gray-600 text-sm'>(Un presupuesto eliminado y sus gastos no se pueden recuperar)</p>
