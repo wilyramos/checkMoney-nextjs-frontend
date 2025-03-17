@@ -18,7 +18,8 @@
     "react-circular-progressbar": "^2.2.0",
     "react-dom": "^18",
     "react-toastify": "^11.0.5",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20",
